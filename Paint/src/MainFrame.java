@@ -66,10 +66,16 @@ public class MainFrame extends javax.swing.JFrame implements MouseListener {
         geriButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int lastindex = storage.index-1;
-                storage.remove(lastindex);
-                System.out.println("sildi4");
-                repaint();
+                int lastindex1 = storage.shapes.length-1;
+                for (int lastindex=lastindex1;lastindex>=0;lastindex--){
+                    if(storage.shapes[lastindex] instanceof NullShape || storage.shapes[lastindex] == null){
+                        continue;
+                    }else{
+                        storage.remove(lastindex);
+                        repaint();
+                        break;
+                    }
+                }
             }
         });
         cizgiButton.addActionListener(new ActionListener() {

@@ -3,7 +3,9 @@ public class Storage {
 
     int index = 0;
     public boolean add(Object shape){
-        shapes[index] = shape;
+        if(shapes[index]==null || shapes[index] instanceof  NullShape){
+            shapes[index] = shape;
+        }
         index++;
         return true;
     }
@@ -16,7 +18,6 @@ public class Storage {
 
         shapes[inputIndex] = nullShape;
         index--;
-
         return true;
     }
     public boolean deleteAll(){
